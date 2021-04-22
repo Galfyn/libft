@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 21:40:43 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/22 20:43:51 by galfyn           ###   ########.fr       */
+/*   Created: 2021/04/22 18:19:38 by galfyn            #+#    #+#             */
+/*   Updated: 2021/04/22 18:34:12 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t i;
-	size_t n;
+	void *res;
 
-	i = 0;
-	n = 0;
-	if (!*needle)
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && len > i)
+	res = malloc(count * size);
+	if(res != NULL)
 	{
-		if(haystack[i] == needle[n])
-		{
-			while (haystack[i] != '\0' && needle[n] != '\0')
-			{
-				n++;
-				return &(((char *)haystack)[i]);
-			}
-		}
-		i++;
+		ft_bzero(res, (count * size));
+		return (res);
 	}
-	return (0);
+	return (NULL);
 }
