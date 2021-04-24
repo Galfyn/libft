@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 20:46:10 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/22 20:49:06 by galfyn           ###   ########.fr       */
+/*   Created: 2021/04/23 23:31:09 by galfyn            #+#    #+#             */
+/*   Updated: 2021/04/24 01:10:35 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t len;
+	size_t i;
 	char *str;
 
-	len = ft_strlen(s1);
-
-	str = (char *)malloc(len * sizeof (char) + 1);
-	if (str == NULL)
+	if(!s1 || !s2)
 		return (NULL);
-	ft_memcpy(str, s1, len);
-	str[len] = '\0';
+	i = 0;
+	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+
+	if(str == NULL)
+		return (NULL);
+	while (*s1 != '\0')
+	{
+		str[i++] = *s1++;
+	}
+	while (*s2 !='\0')
+	{
+		str[i++] = *s2++;
+	}
+	str[i] = '\0';
 	return (str);
 }

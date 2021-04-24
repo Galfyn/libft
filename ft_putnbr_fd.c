@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 20:46:10 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/22 20:49:06 by galfyn           ###   ########.fr       */
+/*   Created: 2021/04/24 01:20:34 by galfyn            #+#    #+#             */
+/*   Updated: 2021/04/24 01:51:08 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+void ft_putnbr_fd(int n, int fd)
 {
-	size_t len;
-	char *str;
 
-	len = ft_strlen(s1);
-
-	str = (char *)malloc(len * sizeof (char) + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_memcpy(str, s1, len);
-	str[len] = '\0';
-	return (str);
 }

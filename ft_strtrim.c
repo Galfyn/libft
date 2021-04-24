@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 20:46:10 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/22 20:49:06 by galfyn           ###   ########.fr       */
+/*   Created: 2021/04/24 00:17:54 by galfyn            #+#    #+#             */
+/*   Updated: 2021/04/24 07:45:23 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t len;
 	char *str;
+	size_t one;
 
-	len = ft_strlen(s1);
-
-	str = (char *)malloc(len * sizeof (char) + 1);
-	if (str == NULL)
+	if (!s1 || !set)
 		return (NULL);
-	ft_memcpy(str, s1, len);
-	str[len] = '\0';
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	one = ft_strlen(s1);
+	while (one && ft_strchr(set, s1[one]))
+		one--;
+	str = ft_substr((char *)s1, 0, one +1);
 	return (str);
 }

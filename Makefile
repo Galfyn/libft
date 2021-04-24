@@ -6,7 +6,7 @@
 #    By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/18 22:14:35 by galfyn            #+#    #+#              #
-#    Updated: 2021/04/22 20:28:18 by galfyn           ###   ########.fr        #
+#    Updated: 2021/04/24 04:00:56 by galfyn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,15 @@ SRC =	ft_memset.c		ft_bzero.c		ft_memcpy.c		\
 		ft_strncmp.c	ft_strlcpy.c	ft_strlcat.c	\
 		ft_putnbr.c		ft_putchar.c	ft_atoi.c		\
 		ft_isspace.c	ft_calloc.c		ft_strnstr.c	\
+		ft_calloc.c		ft_strdup.c		ft_substr.c		\
+		ft_strjoin.c	ft_strmapi.c	ft_putchar_fd.c	\
+		ft_strtrim.c
 
 
-SRC_BONUS = \
+SRC_B =		ft_lstnew.c	ft_lstadd_front.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
-OBJ_BONUS = $(patsubst %.c,%.o,$(SRC_BONUS))
+OBJ_B = $(patsubst %.c,%.o,$(SRC_B))
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -39,10 +42,13 @@ $(NAME) : $(OBJ)
 %.o : %.c
 	gcc $(FLAGS) -c $< -o $@
 
+bonus :
+	make OBJ="$(OBJ_B)" all
+
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_B)
 fclean : clean
 	rm -f $(NAME)
 re : fclean all
 
-.PHONY : clean fclean re all
+.PHONY : clean fclean re all bonus
