@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 23:31:09 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/24 01:10:35 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/04/27 00:30:54 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-	char *str;
+	size_t	i;
+	char	*str;
 
-	if(!s1 || !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
 	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-
-	if(str == NULL)
+	if (str == NULL)
 		return (NULL);
 	while (*s1 != '\0')
 	{

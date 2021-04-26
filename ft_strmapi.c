@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 00:45:51 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/24 01:09:21 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/04/27 00:31:51 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *str;
-	int i;
-
+	char	*str;
+	int		i;
 
 	if (!s || !f)
 		return (NULL);
-
 	str = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
 	i = 0;
 	if (str == NULL)
 		return (NULL);
-
 	while (s[i] != '\0')
 	{
 		str[i] = f(i, s[i]);

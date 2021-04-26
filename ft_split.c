@@ -6,30 +6,30 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 10:44:23 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/26 23:40:25 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/04/27 00:28:59 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-static	int ft_countWord(char const *s, char c);
-static int ft_countChr(char const *s, char c);
-static void *ft_clear(char **s, int i);
+static	int	ft_countWord(char const *s, char c);
+static int	ft_countChr(char const *s, char c);
+static void	*ft_clear(char **s, int i);
 
 char	**ft_split(char const *s, char c)
 {
-	char **result;
-	int i;
-	int lenWord;
+	char	**result;
+	int		i;
+	int		lenWord;
 
 	if (!s)
 		return (NULL);
 	lenWord = ft_countWord(s, c);
 	i = 0;
-	result = (char**)malloc(sizeof(char *) * (lenWord + 1));
+	result = (char **)malloc(sizeof(char *) * (lenWord + 1));
 	if (result == NULL)
 		return (NULL);
-	while(i < lenWord)
+	while (i < lenWord)
 	{
 		while (*s == c && *s != '\0')
 			s++;
@@ -43,10 +43,10 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-static	int ft_countWord(char const *s, char c)
+static	int	ft_countWord(char const *s, char c)
 {
-	int i;
-	int size;
+	int	i;
+	int	size;
 
 	i = 0;
 	size = 0;
@@ -63,22 +63,24 @@ static	int ft_countWord(char const *s, char c)
 	}
 	return (size);
 }
-static	int ft_countChr(char const *s, char c)
+
+static	int	ft_countChr(char const *s, char c)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[len] != '\0' && s[len] != c)
 		len++;
-	return(len);
+	return (len);
 }
-static void *ft_clear(char **s, int i)
+
+static void	*ft_clear(char **s, int i)
 {
 	while (i >= 0)
 	{
 		free(s[i]);
 		i--;
 	}
-		free(s);
+	free(s);
 	return (NULL);
 }
