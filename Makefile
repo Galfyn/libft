@@ -6,7 +6,7 @@
 #    By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/18 22:14:35 by galfyn            #+#    #+#              #
-#    Updated: 2021/04/26 23:25:31 by galfyn           ###   ########.fr        #
+#    Updated: 2021/04/27 01:00:18 by galfyn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC =	ft_memset.c		ft_bzero.c		ft_memcpy.c		\
 		ft_isspace.c	ft_calloc.c		ft_strnstr.c	\
 		ft_calloc.c		ft_strdup.c		ft_substr.c		\
 		ft_strjoin.c	ft_strmapi.c	ft_putchar_fd.c	\
-		ft_strtrim.c	ft_split.c
+		ft_strtrim.c	ft_split.c		ft_putstr_fd.c	\
+		ft_putendl_fd.c
 
 
 SRC_B =
