@@ -6,7 +6,7 @@
 #    By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/18 22:14:35 by galfyn            #+#    #+#              #
-#    Updated: 2021/04/24 04:00:56 by galfyn           ###   ########.fr        #
+#    Updated: 2021/04/26 23:25:31 by galfyn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ SRC =	ft_memset.c		ft_bzero.c		ft_memcpy.c		\
 		ft_isspace.c	ft_calloc.c		ft_strnstr.c	\
 		ft_calloc.c		ft_strdup.c		ft_substr.c		\
 		ft_strjoin.c	ft_strmapi.c	ft_putchar_fd.c	\
-		ft_strtrim.c
+		ft_strtrim.c	ft_split.c
 
 
-SRC_B =		ft_lstnew.c	ft_lstadd_front.c
+SRC_B =
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 OBJ_B = $(patsubst %.c,%.o,$(SRC_B))
