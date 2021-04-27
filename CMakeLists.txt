@@ -18,7 +18,6 @@ add_executable(Libft
         ft_isprint.c
         ft_isspace.c
         ft_isupper.c
-        ft_lstnew.c
         ft_memccpy.c
         ft_memchr.c
         ft_memcmp.c
@@ -28,8 +27,8 @@ add_executable(Libft
         ft_memset.c
         ft_putchar.c
         ft_putchar_fd.c
-        ft_putnbr.c
         ft_putnbr_fd.c
+        ft_putstr_fd.c
         ft_strchr.c
         ft_strdup.c
         ft_strjoin.c
@@ -46,4 +45,4 @@ add_executable(Libft
         ft_toupper.c
         ft_split.c
         libft.h
-        mainisiasi.c)
+        main.c)

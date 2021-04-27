@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: galfyn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 17:58:04 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/22 15:09:07 by galfyn           ###   ########.fr       */
+/*   Created: 2021/04/23 20:20:53 by galfyn            #+#    #+#             */
+/*   Updated: 2021/04/28 00:00:31 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+t_list		*ft_lstnew(void *content)
 {
-	if (nb == -2147483648)
+	t_list	*rootList;
+
+	rootList = malloc(sizeof(t_list));
+	if (rootList)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		rootList->content = content;
+		rootList->next = NULL;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		ft_putchar(nb + 48);
-	}
+	return (rootList);
 }
