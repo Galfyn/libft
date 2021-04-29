@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 01:20:34 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/27 22:46:23 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/04/29 12:58:54 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
+	long	nb;
+
+	nb = n;
+	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		nb = -nb;
 	}
-	else if (n >= 10)
+	if (nb >= 10)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd(nb % 10 + '0', fd);
 	}
 	else
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd(nb + '0', fd);
 }

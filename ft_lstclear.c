@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: galfyn <galfyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/23 21:09:05 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/29 13:37:17 by galfyn           ###   ########.fr       */
+/*   Created: 2021/04/29 16:06:47 by galfyn            #+#    #+#             */
+/*   Updated: 2021/04/29 16:53:39 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	new->next = *lst;
-	*lst = new;
+		t_list *link;
+
+		link = *lst;
+		while (link != NULL)
+		{
+			del(link);
+			link = link->next;
+		}
+		*lst = NULL;
 }
