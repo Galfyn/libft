@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 18:52:03 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/27 21:17:57 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/04/30 14:59:57 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	len_d = ft_strlen(dst);
 	len_s = ft_strlen(src);
-	if (size > len_d)
+	if (size > len_d || len_d == len_s)
 		ret = (len_d + len_s);
 	else
 		ret = (len_s + size);

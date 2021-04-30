@@ -40,18 +40,18 @@ FLAGS = -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@ar rcs $(NAME) $?
+	ar rcs $(NAME) $?
 
 %.o : %.c
-	@gcc $(FLAGS) -c $< -o $@
+	gcc $(FLAGS) -c $< -o $@
 
 bonus :	$(OBJ_B)
-	@ar rcs $(NAME) $?
+	ar rcs $(NAME) $?
 
 clean :
-	@rm -f $(OBJ) $(OBJ_B)
+	rm -f $(OBJ) $(OBJ_B)
 fclean : clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 re : fclean all
 
 .PHONY : clean fclean re all bonus

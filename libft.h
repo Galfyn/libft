@@ -46,7 +46,6 @@ void	*ft_memset (void *b, int c, size_t len);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_strtrim(char const *s1, char const *set);
 void	*ft_memchr (const void *arr, int c, size_t n);
 void	*ft_memrchr (const void *arr, int c, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
