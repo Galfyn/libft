@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_count_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: galfyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 15:03:56 by galfyn            #+#    #+#             */
-/*   Updated: 2021/09/21 01:18:33 by galfyn           ###   ########.fr       */
+/*   Created: 2022/01/15 09:10:40 by galfyn            #+#    #+#             */
+/*   Updated: 2022/01/15 09:11:36 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_count_hex(unsigned long hex, t_format *spec)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	if (!dst && !src)
+	if (!hex && spec->dot == 1 && spec->precision == 0)
 		return (0);
-	while (src[i] != '\0' && i < (size - 1))
+	if (!hex)
+		return (1);
+	while (hex > 0)
 	{
-		dst[i] = src[i];
+		hex /= 16;
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	return (i);
 }

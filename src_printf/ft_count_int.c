@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_count_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: galfyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 15:03:56 by galfyn            #+#    #+#             */
-/*   Updated: 2021/09/21 01:18:33 by galfyn           ###   ########.fr       */
+/*   Created: 2022/01/15 09:10:53 by galfyn            #+#    #+#             */
+/*   Updated: 2022/01/15 09:10:54 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_count_int(long integer)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	if (!dst && !src)
-		return (0);
-	while (src[i] != '\0' && i < (size - 1))
+	if (integer < 0)
 	{
-		dst[i] = src[i];
+		integer *= -1;
+	}
+	if (integer == 0)
+		return (1);
+	while (integer > 0)
+	{
+		integer /= 10;
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 23:31:09 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/27 00:30:54 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/09/21 01:18:33 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	{
 		str[i++] = *s1++;
 	}
-	while (*s2 !='\0')
+	while (*s2 != '\0')
 	{
 		str[i++] = *s2++;
 	}

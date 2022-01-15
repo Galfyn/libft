@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 20:59:40 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/21 14:46:21 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/09/21 01:18:33 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_tolower(int c)
 {
 	if (ft_isupper(c))
-		return (c +32);
+		return (c + 32);
 	else
 		return (c);
 }

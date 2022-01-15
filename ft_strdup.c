@@ -6,7 +6,7 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 20:46:10 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/27 00:29:43 by galfyn           ###   ########.fr       */
+/*   Updated: 2021/09/21 01:18:33 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,19 @@
 char	*ft_strdup(const char *s1)
 {
 	size_t	len;
+	size_t	i;
 	char	*str;
 
+	i = 0;
 	len = ft_strlen(s1);
-	str = (char *)malloc(len * sizeof (char) + 1);
+	str = (char *)malloc(sizeof (char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	ft_memcpy(str, s1, len);
 	str[len] = '\0';
+	while (len--)
+	{
+		str[i] = s1[i];
+		i++;
+	}
 	return (str);
 }

@@ -6,44 +6,13 @@
 /*   By: galfyn <galfyn@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 10:44:23 by galfyn            #+#    #+#             */
-/*   Updated: 2021/04/27 00:28:59 by galfyn           ###   ########.fr       */
+/*   Updated: 2022/01/15 09:03:22 by galfyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-static	int	ft_countWord(char const *s, char c);
-static int	ft_countChr(char const *s, char c);
-static void	*ft_clear(char **s, int i);
 
-char	**ft_split(char const *s, char c)
-{
-	char	**result;
-	int		i;
-	int		lenWord;
-
-	if (!s)
-		return (NULL);
-	lenWord = ft_countWord(s, c);
-	i = 0;
-	result = (char **)malloc(sizeof(char *) * (lenWord + 1));
-	if (result == NULL)
-		return (NULL);
-	while (i < lenWord)
-	{
-		while (*s == c && *s != '\0')
-			s++;
-		result[i] = ft_substr(s, 0, ft_countChr(s, c));
-		if (result[i] == NULL)
-			return (ft_clear(result, i));
-		s = s + ft_countChr(s, c);
-		i++;
-	}
-	result[i] = NULL;
-	return (result);
-}
-
-static	int	ft_countWord(char const *s, char c)
+static	int	ft_count_word(char const *s, char c)
 {
 	int	i;
 	int	size;
@@ -64,7 +33,7 @@ static	int	ft_countWord(char const *s, char c)
 	return (size);
 }
 
-static	int	ft_countChr(char const *s, char c)
+static	int	ft_count_chr(char const *s, char c)
 {
 	int	len;
 
@@ -83,4 +52,31 @@ static void	*ft_clear(char **s, int i)
 	}
 	free(s);
 	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+	int		i;
+	int		len_word;
+
+	if (!s)
+		return (NULL);
+	len_word = ft_count_word(s, c);
+	i = 0;
+	result = (char **)malloc(sizeof(char *) * (len_word + 1));
+	if (result == NULL)
+		return (NULL);
+	while (i < len_word)
+	{
+		while (*s == c && *s != '\0')
+			s++;
+		result[i] = ft_substr(s, 0, ft_count_chr(s, c));
+		if (result[i] == NULL)
+			return (ft_clear(result, i));
+		s = s + ft_count_chr(s, c);
+		i++;
+	}
+	result[i] = NULL;
+	return (result);
 }
